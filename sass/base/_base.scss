@@ -18,7 +18,7 @@ button {
 
 .container {
   width: 900px;
-  min-width: 90vw;
+  max-width: 90vw;
   margin: auto;
   text-align: center;
   padding-top: 10px;
@@ -84,4 +84,26 @@ header {
 }
 .cart__tap .btn button.close {
   background-color: #eee;
+}
+
+// list
+.cart__tap .cart__list {
+  overflow: auto;
+}
+
+.cart__tap .cart__list::-webkit-scrollbar {
+  size: 0;
+}
+
+.cart__tap {
+  right: -400px;
+  transition: 0.5s;
+}
+
+body.active__tap-cart .cart__tap {
+  right: 0;
+}
+
+body.active__tap-cart .container {
+  transform: translateX(-250px);
 }
