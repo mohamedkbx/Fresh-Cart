@@ -1,0 +1,87 @@
+body {
+  margin: 0;
+  font-family: Poppins;
+}
+
+svg {
+  width: 30px;
+}
+
+a {
+  text-decoration: none;
+  color: #2f2f2f;
+}
+
+button {
+  cursor: pointer;
+}
+
+.container {
+  width: 900px;
+  min-width: 90vw;
+  margin: auto;
+  text-align: center;
+  padding-top: 10px;
+  transition: 0.5s;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.cart__icon {
+  position: relative;
+  cursor: pointer;
+}
+.cart__icon span {
+  background-color: red;
+  color: white;
+  position: absolute;
+  top: 50%;
+  right: -20px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  font-size: xx-large;
+}
+
+.cart__tap {
+  background-color: #353432;
+  color: #eee;
+  width: 400px;
+  max-width: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  grid-template-rows: 70px 1fr 70px;
+}
+.cart__tap h1 {
+  padding: 20px;
+  margin: 0;
+  font-weight: 300;
+}
+
+.cart__tap .btn {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.cart__tap .btn button {
+  background-color: #e8bc0e;
+  border: none;
+  font-family: Poppins;
+  font-weight: 500;
+}
+.cart__tap .btn button.close {
+  background-color: #eee;
+}
