@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
-  entry: "./scripts/app.js",
+  entry: "./scripts/index.js",
   mode: "production",
   optimization: {
     minimizer: [

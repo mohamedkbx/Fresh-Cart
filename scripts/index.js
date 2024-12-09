@@ -1,4 +1,5 @@
 import cart from "./cart.js";
+import products from "./products.js";
 import "../sass/main.scss";
 
 let app = document.getElementById("app");
@@ -22,4 +23,15 @@ loadTemplate();
 
 const initApp = () => {
   //Load list product
+  let productList = document.querySelector(".list__product");
+  productList.innerHTML = null;
+  products.forEach((product) => {
+    let newProduct = document.createElement("div");
+    newProduct.classList.add("item");
+    newProduct.innerHTML = `
+        <img src ="${product.image}"/>
+
+        `;
+    productList.appendChild(newProduct);
+  });
 };
