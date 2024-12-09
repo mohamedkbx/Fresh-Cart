@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   entry: "./scripts/index.js",
   mode: "development",
+
   module: {
     rules: [
       {
