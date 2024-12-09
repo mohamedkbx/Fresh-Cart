@@ -5,6 +5,11 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   entry: "./scripts/index.js",
   mode: "development",
+  devServer: {
+    static: path.resolve(__dirname, "dist"),
+    port: 4000,
+    hot: true,
+  },
 
   module: {
     rules: [
@@ -31,6 +36,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./index.html",
       filename: "./index.html",
+      favicon: "./assets/favicon.ico",
     }),
   ],
 };
