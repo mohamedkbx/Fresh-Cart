@@ -1,18 +1,25 @@
+import cart from "./cart.js";
 import "../sass/main.scss";
 
-// selection elements
-const cartIcon = document.querySelector(".cart__icon");
-const closeBtn = document.querySelector(".close");
-let body = document.querySelector("body");
+let app = document.getElementById("app");
+let temporaryContent = document.getElementById("temporary__content");
 
-// event listeners
-cartIcon.addEventListener("click", toggleCart);
-closeBtn.addEventListener("click", closeCart);
+//load temp file
+const loadTemplate = () => {
+  fetch("../template.html")
+    .then((response) => response.text())
+    .then((html) => {
+      app.innerHTML = html;
+      let contentTap = document.getElementById("content__tap");
+      contentTap.innerHTML = temporaryContent.innerHTML;
+      temporaryContent.innerHTML = null;
+      cart();
+      initApp();
+    });
+};
 
-//functions
-function toggleCart() {
-  body.classList.toggle("active__tap-cart");
-}
-function closeCart() {
-  body.classList.remove("active__tap-cart");
-}
+loadTemplate();
+
+const initApp = () => {
+  //Load list product
+};

@@ -38,5 +38,10 @@ module.exports = {
       filename: "./index.html",
       favicon: "./assets/favicon.ico",
     }),
+    new HtmlWebpackPlugin({
+      template: "./template.html",
+      filename: "template.html", // The output file in dist
+      favicon: "./assets/favicon.ico",
+    }),
   ],
 };
