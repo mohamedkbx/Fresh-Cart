@@ -36,6 +36,13 @@ module.exports = {
         test: /\.scss$/,
         use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
       },
+      {
+        test: /\.(png|jpe?g|gif|ico)$/,
+        type: "asset/resource",
+        generator: {
+          filename: "assets/[name][ext]",
+        },
+      },
     ],
   },
 
@@ -43,6 +50,12 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./index.html",
       filename: "./index.html",
+      favicon: "./assets/favicon.ico",
+    }),
+    new HtmlWebpackPlugin({
+      template: "./template.html",
+      filename: "template.html", // The output file in dist
+      favicon: "./assets/favicon.ico",
     }),
     new MiniCssExtractPlugin({
       filename: "[name].css",
