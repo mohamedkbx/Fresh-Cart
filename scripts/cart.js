@@ -37,7 +37,26 @@ const cart = () => {
     let totalQuantity = 0;
     listHtml.innerHTML = null;
     cart.forEach((item) => {
-      totalQuantity += item.quantity;
+      totalQuantity = totalQuantity + item.quantity;
+      let postion = products.findIndex((value) => value.id == item.product_id);
+      let info = products[postion];
+      let newItem = document.createElement("div");
+      newItem.classList.add("item");
+      newItem.innerHTML = `
+       <div class="image">
+       <img src="${info.image}"/>
+       </div>
+        <div class="name">${info.name}</div>
+        <div class="totalPrice">$
+        ${info.price * item.quantity}
+        </div>
+        <div class="quantity">
+        <span class="minus">-</span>
+        <span>${item.quantity}</span>
+        <span class="plus">+</span>
+        </div>
+      `;
+      listHtml.appendChild(newItem);
     });
     totalHtml.innerText = totalQuantity;
   };
