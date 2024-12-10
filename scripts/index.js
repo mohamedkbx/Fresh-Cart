@@ -55,6 +55,8 @@ function loadTemplate() {
           logoutIcon.addEventListener("click", () => {
             // Remove the token from localStorage
             localStorage.removeItem("token");
+            // Set the logout flag
+            localStorage.setItem("logoutSuccess", "true");
 
             // Redirect the user to the login page
             window.location.href = "/login.html"; // Change this path if necessary

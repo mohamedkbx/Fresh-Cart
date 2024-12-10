@@ -1,6 +1,23 @@
 import axios from "axios";
 import "../sass/pages/login.scss";
 
+document.addEventListener("DOMContentLoaded", () => {
+  const logoutModal = document.getElementById("logout-modal");
+
+  // Check if the logout success flag exists
+  if (localStorage.getItem("logoutSuccess")) {
+    // Show the modal
+    logoutModal.classList.remove("hidden");
+
+    // Remove the flag
+    localStorage.removeItem("logoutSuccess");
+  }
+
+  setTimeout(() => {
+    logoutModal.classList.add("hidden");
+  }, 3000); // 3 seconds
+});
+
 const submitBtn = document.querySelector(".submit-btn");
 
 submitBtn.addEventListener("click", () => {
