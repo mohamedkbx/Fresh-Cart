@@ -7,7 +7,7 @@ module.exports = {
   mode: "development",
   devServer: {
     static: path.resolve(__dirname, "dist"),
-    port: 4000,
+    port: 5000,
     hot: true,
   },
 
@@ -48,11 +48,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./template.html",
       filename: "template.html", // The output file in dist
-      favicon: "./assets/favicon.ico",
-    }),
-    new HtmlWebpackPlugin({
-      template: "./pages/detail.html",
-      filename: "detail.html",
       favicon: "./assets/favicon.ico",
     }),
   ],
