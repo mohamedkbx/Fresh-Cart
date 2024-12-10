@@ -17,7 +17,13 @@ submitBtn.addEventListener("click", () => {
       localStorage.setItem("token", token);
       console.log("🚀 ~ .then ~ token:", token);
       // Redirect to the index.html
-      window.location.href = "/index.html"; // Uncomment this line for redirection
+      // window.location.href = "/index.html";
+      localStorage.setItem("loginMessage", "Welcome ❤️ Login Successful");
+
+      // Redirect to index.html after a delay to allow the modal to show
+      setTimeout(() => {
+        window.location.href = "/index.html"; // Change path if necessary
+      }, 300); // Delay of .5 second to show the modal before redirecting
     })
     .catch((error) => {
       console.error("Login failed:", error.response.data.error);

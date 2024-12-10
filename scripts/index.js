@@ -9,6 +9,31 @@ if (!token) {
   loadTemplate();
 }
 
+const displayLoginMessage = () => {
+  const message = localStorage.getItem("loginMessage");
+  if (message) {
+    const modal = document.getElementById("welcomeModal");
+    const closeBtn = document.getElementById("closeModalBtn"); // Changed to 'closeModalBtn'
+
+    // Show the modal with the message
+    modal.style.display = "flex";
+    document.getElementById("modalMessage").innerText = message;
+
+    // Remove the message from localStorage after displaying
+    localStorage.removeItem("loginMessage");
+
+    // Hide the modal after 3 seconds
+    setTimeout(() => {
+      modal.style.display = "none";
+    }, 1500); // Hide after 3 seconds
+
+    // Close the modal immediately when the button is clicked
+    closeBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+  }
+};
+
 let app = document.getElementById("app");
 let temporaryContent = document.getElementById("temporary__content");
 
@@ -27,6 +52,7 @@ function loadTemplate() {
         }
         cart();
         initApp();
+        displayLoginMessage();
       } else {
         console.error("App container not found.");
       }
