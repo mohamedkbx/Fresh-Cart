@@ -28,7 +28,10 @@ const cart = () => {
       } else {
         cart[position].quantity = quantity;
       }
+    } else {
+      cart.splice(position, 1);
     }
+    localStorage.setItem("cart", JSON.stringify(cart));
     refreshCart();
   };
   const refreshCart = () => {
@@ -51,9 +54,9 @@ const cart = () => {
         ${info.price * item.quantity}
         </div>
         <div class="quantity">
-        <span class="minus">-</span>
+        <span class="minus" data-id="${info.id}">-</span>
         <span>${item.quantity}</span>
-        <span class="plus">+</span>
+        <span class="plus" data-id="${info.id}">+</span>
         </div>
       `;
       listHtml.appendChild(newItem);
@@ -68,11 +71,21 @@ const cart = () => {
     let postion = cart.findIndex((value) => value.product_id === idProduct);
     let quantity = postion < 0 ? 0 : cart[postion].quantity;
 
-    if (buttonClicked.classList.contains("addCart")) {
+    if (buttonClicked.classList.contains("addCart") || buttonClicked.classList.contains("plus")) {
       quantity++;
+      setProductInCart(idProduct, quantity, postion);
+    } else if (buttonClicked.classList.contains("minus")) {
+      quantity--;
       setProductInCart(idProduct, quantity, postion);
     }
   });
+  const initApp = () => {
+    if (localStorage.getItem("cart")) {
+      cart = JSON.parse(localStorage.getItem("cart"));
+    }
+    refreshCart();
+  };
+  initApp();
 };
 
 export default cart;
