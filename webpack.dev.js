@@ -50,5 +50,10 @@ module.exports = {
       filename: "template.html", // The output file in dist
       favicon: "./assets/favicon.ico",
     }),
+    new HtmlWebpackPlugin({
+      template: "./pages/detail.html",
+      filename: "detail.html",
+      favicon: "./assets/favicon.ico",
+    }),
   ],
 };
