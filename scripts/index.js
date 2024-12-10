@@ -2,24 +2,36 @@ import cart from "./cart.js";
 import products from "./products.js";
 import "../sass/main.scss";
 
+const token = localStorage.getItem("token");
+if (!token) {
+  window.location.href = "/login.html";
+} else {
+  loadTemplate();
+}
+
 let app = document.getElementById("app");
 let temporaryContent = document.getElementById("temporary__content");
 
 //load temp file
-const loadTemplate = () => {
+function loadTemplate() {
   fetch("../template.html")
     .then((response) => response.text())
     .then((html) => {
-      app.innerHTML = html;
-      let contentTap = document.getElementById("content__tap");
-      contentTap.innerHTML = temporaryContent.innerHTML;
-      temporaryContent.innerHTML = null;
-      cart();
-      initApp();
+      const app = document.getElementById("app");
+      if (app) {
+        app.innerHTML = html;
+        const contentTap = document.getElementById("content__tap");
+        if (contentTap && temporaryContent) {
+          contentTap.innerHTML = temporaryContent.innerHTML;
+          temporaryContent.innerHTML = null;
+        }
+        cart();
+        initApp();
+      } else {
+        console.error("App container not found.");
+      }
     });
-};
-
-loadTemplate();
+}
 
 const initApp = () => {
   //Load list product
