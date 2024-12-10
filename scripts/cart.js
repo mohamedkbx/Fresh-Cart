@@ -35,6 +35,7 @@ const cart = () => {
     let listHtml = document.querySelector(".cart__list");
     let totalHtml = document.querySelector(".cart__icon span");
     let totalQuantity = 0;
+    listHtml.innerHTML = null;
     cart.forEach((item) => {
       totalQuantity += item.quantity;
     });
