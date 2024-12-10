@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   entry: "./scripts/index.js",
   mode: "development",
+  devtool: "source-map",
   devServer: {
     static: path.resolve(__dirname, "dist"),
     port: 5000,
@@ -47,7 +48,12 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: "./template.html",
-      filename: "template.html", // The output file in dist
+      filename: "template.html",
+      favicon: "./assets/favicon.ico",
+    }),
+    new HtmlWebpackPlugin({
+      template: "./pages/login.html",
+      filename: "login.html",
       favicon: "./assets/favicon.ico",
     }),
   ],
