@@ -23,7 +23,7 @@ submitBtn.addEventListener("click", () => {
       // Redirect to index.html after a delay to allow the modal to show
       setTimeout(() => {
         window.location.href = "/index.html"; // Change path if necessary
-      }, 300); // Delay of .5 second to show the modal before redirecting
+      }, 200); // Delay of .2 second to show the modal before redirecting
     })
     .catch((error) => {
       console.error("Login failed:", error.response.data.error);

@@ -49,6 +49,16 @@ function loadTemplate() {
         if (contentTap && temporaryContent) {
           contentTap.innerHTML = temporaryContent.innerHTML;
           temporaryContent.innerHTML = null;
+          // Select the logout icon element
+          const logoutIcon = document.querySelector(".logout__icon");
+          // Add event listener for logout action
+          logoutIcon.addEventListener("click", () => {
+            // Remove the token from localStorage
+            localStorage.removeItem("token");
+
+            // Redirect the user to the login page
+            window.location.href = "/login.html"; // Change this path if necessary
+          });
         }
         cart();
         initApp();

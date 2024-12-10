@@ -35,8 +35,11 @@ header {
   position: relative;
   cursor: pointer;
 }
+.logout__icon {
+  cursor: pointer;
+}
 .cart__icon span {
-  background-color: red;
+  background-color: #000;
   color: white;
   position: absolute;
   top: 50%;
